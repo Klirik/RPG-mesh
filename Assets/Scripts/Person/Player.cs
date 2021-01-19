@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
-using UnityEngine.AI;
 
-public class Player : MonoBehaviour
+public class Player : AbstractPerson
 {
     [HideInInspector] public Quaternion myRotation;
 
-    public NavMeshAgent agent;
+    private void Start()
+    {
+        attack = 100;
+    }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -17,8 +20,6 @@ public class Player : MonoBehaviour
             {
                 agent.SetDestination(hit.point);
             }
-
         }
-
     }
 }
