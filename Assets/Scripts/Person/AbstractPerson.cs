@@ -5,9 +5,7 @@ using UnityEngine.AI;
 public abstract class AbstractPerson : MonoBehaviour, IDestructable
 {
     public event Action<GameObject> OnDestroyObj = delegate { }; 
-
-
-
+       
     [Header("Характеристики персонажа")]
     public NavMeshAgent agent;
     public int health { get; protected set; } = 100;
@@ -23,5 +21,6 @@ public abstract class AbstractPerson : MonoBehaviour, IDestructable
             OnDestroyObj?.Invoke(gameObject);
             Destroy(gameObject);
         }
+        Debug.LogError(health);
     }
 }

@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 9408059fff1fb584eb94930bd35b7499
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - NavMeshSurface: {instanceID: 0}
+  - WallPrefab: {fileID: 2859922129023908050, guid: 2a420973382c44941bd04b0a322f2f22,
+      type: 3}
+  - RampantPrefab: {fileID: 2544932090541965084, guid: f7cc368e4dd98eb40993f13fc2ae7d74,
+      type: 3}
+  - PlayerSpawner: {fileID: 4395601604354371225, guid: b732a962946789147a1b9d5184d9c036,
+      type: 3}
+  - EnemySpawner: {fileID: 4395601604354371225, guid: 1c58494491f6c0a4288a32e280534b6c,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
