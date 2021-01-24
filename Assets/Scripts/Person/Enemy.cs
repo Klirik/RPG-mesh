@@ -1,17 +1,14 @@
-﻿using UnityEngine;
-using UnityEngine.AI;
-
-public class Enemy : AbstractPerson
+﻿public class Enemy : AbstractPerson
 {
-    public AttackControllerEnemy attackController;
+    public AttackControllerEnemy AttackController;
     
-    private void Update()
+    protected void Awake()
     {
-        if(attackController.CurTarget)
-        {
-            var curTargetPos = attackController.CurTarget.transform.position;
+        base.Awake();
 
-            agent.SetDestination(curTargetPos);
-        }
-    }
+        Health = ConfigManager.Enemy.health;
+        Attack = ConfigManager.Enemy.attack;
+        Defence = ConfigManager.Enemy.defence;
+        Speed = ConfigManager.Enemy.speed;
+    }   
 }

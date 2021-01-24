@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 41295906352729442}
   - component: {fileID: 7321079812237167206}
   - component: {fileID: 6763587884750696834}
+  - component: {fileID: 3434558451330258674}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Untagged
@@ -109,8 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 696b80ddfbf414940ab69677ed023fb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 6763587884750696834}
-  attackController: {fileID: 4004090123736338562}
+  AttackController: {fileID: 4004090123736338562}
 --- !u!195 &6763587884750696834
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -133,6 +133,21 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3434558451330258674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3108538357799755748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4183be79266b81448e0eb633c76134b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myRotation: {x: 0, y: 0, z: 0, w: 0}
+  Agent: {fileID: 6763587884750696834}
+  AttackController: {fileID: 4004090123736338562}
 --- !u!1 &5308621254360776276
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +191,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &100677523431860305
 MonoBehaviour:
@@ -203,7 +218,7 @@ GameObject:
   - component: {fileID: 2271803648276458172}
   - component: {fileID: 4004090123736338562}
   m_Layer: 10
-  m_Name: AttackController
+  m_Name: AttackControllerEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

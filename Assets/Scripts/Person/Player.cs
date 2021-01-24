@@ -2,31 +2,15 @@
 
 public class Player : AbstractPerson
 {
-    [HideInInspector] public Quaternion myRotation;
-
-    [Header("Слой локации")]
-    public int layerMask = 0;
+    public MotionControllerPlayer Legs;
     private void Start()
     {
-        attack = 100;
-        layerMask = 1 << layerMask;
+        Health = ConfigManager.Player.health;
+        Attack = ConfigManager.Player.attack;
+        Defence = ConfigManager.Player.defence;
+        Speed = ConfigManager.Player.speed;
+
+        Legs.Agent.speed = Speed;        
     }
 
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if(Physics.Raycast(ray, out hit, float.MaxValue,layerMask))
-            {
-                agent.SetDestination(hit.point);
-            }
-            else
-            {
-                Debug.Log(hit.transform.name);
-            }
-        }
-    }
 }

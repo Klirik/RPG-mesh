@@ -1,26 +1,59 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
 public abstract class AbstractPerson : MonoBehaviour, IDestructable
 {
-    public event Action<GameObject> OnDestroyObj = delegate { }; 
-       
-    [Header("Характеристики персонажа")]
-    public NavMeshAgent agent;
-    public int health { get; protected set; } = 100;
-    public float speed { get; protected set; } = 1f;
-    public int attack { get; protected set; } = 1;
-    public int defence { get; protected set; } = 1;
+    private const float DIE_DELAY = 1f;
 
-    public void TakeDamage(int damage)
+    public event Action<GameObject> OnDestroyObj = delegate { }; 
+        
+    public int Health { get; protected set; } = 100;
+    public int Attack { get; protected set; } = 1;
+    public int Defence { get; protected set; } = 1;
+    public float Speed { get; protected set; } = 1f;
+
+    protected float CharacContribution = 0.5f;
+
+    public ConfigManager ConfigManager { get; private set; } = null;
+
+    protected void Awake()
     {
-        health -= damage;
-        if(health <= 0)
+        ConfigManager = FindObjectOfType<ConfigManager>();
+        if (ConfigManager)
+        {
+            InitGlobalParams();
+        }
+    }
+
+    private void InitGlobalParams()
+    {
+        CharacContribution = ConfigManager.Global.CharacteristicContribution;
+    }
+
+    public void TakeDamage(int damage, int enemyAttack)
+    {
+        Health -= CalcDamage(damage, enemyAttack);
+
+        if(Health <= 0)
         {
             OnDestroyObj?.Invoke(gameObject);
-            Destroy(gameObject);
+            die = StartCoroutine(DieProcess());
         }
-        Debug.LogError(health);
+    }
+
+    private Coroutine die = null;
+
+    private IEnumerator DieProcess()
+    {
+        yield return new WaitForSeconds(DIE_DELAY);
+        Destroy(gameObject);
+        die = null;
+    }
+
+    private int CalcDamage(int damage, int enemyAttack)
+    {
+        return (damage + (int)(damage * (enemyAttack - Defence) * CharacContribution));
     }
 }

@@ -12,7 +12,7 @@ public class MeleeWeapon : AbstractWeapon
         var tempTarget = other.GetComponent<AbstractPerson>();
 
         if (tempTarget)
-        {            
+        {
             target = tempTarget;
             canBite = true;
         }
@@ -23,7 +23,6 @@ public class MeleeWeapon : AbstractWeapon
         if (other.GetComponent<AbstractPerson>())
         {
             canBite = false;
-            Debug.Log(other.name);
         }
     }
 
@@ -49,7 +48,7 @@ public class MeleeWeapon : AbstractWeapon
     {        
         while (canBite)
         {
-            target.TakeDamage((int)damage);
+            target.TakeDamage((int)damage, attackController.Person.Attack);
 
             yield return new WaitForSeconds(fireRate);
         }

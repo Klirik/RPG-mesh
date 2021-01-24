@@ -47,7 +47,9 @@ public class RangeWeapon : AbstractWeapon
             var obj = Instantiate(BulletPrefab, BulletSpawn.transform.position, Quaternion.identity, null);
             var bullet = obj.GetComponent<Bullet>();
 
-            bullet.Damage = weaponDamage * attackController.Person.attack;
+            bullet.Damage = weaponDamage ;
+            bullet.myAttack = attackController.Person.Attack;
+
             bullet.rbBullet.AddForce(bulletSpeed * direction.normalized, ForceMode.Impulse);
 
             yield return new WaitForSeconds(fireRate);

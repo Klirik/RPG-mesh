@@ -8,9 +8,17 @@ public class FollowCamera : MonoBehaviour
     
     private Player person;
 
+    private PlayerSpawner playerSpawner;
     private void Start()
     {
-        MapGenerator.OnEndGenerate += FindPlayer;
+        if (MapGenerator) MapGenerator.OnEndGenerate += FindSpawner;
+    }
+
+    private void FindSpawner()
+    {
+        playerSpawner = FindObjectOfType<PlayerSpawner>();
+
+        if (playerSpawner) playerSpawner.OnSpawn += FindPlayer;
     }
 
     private void FindPlayer()
@@ -28,6 +36,7 @@ public class FollowCamera : MonoBehaviour
 
     private void OnDestroy()
     {
-        MapGenerator.OnEndGenerate -= FindPlayer;
+        if (MapGenerator) MapGenerator.OnEndGenerate -= FindSpawner;
+        if (playerSpawner) playerSpawner.OnSpawn -= FindPlayer;
     }
 }

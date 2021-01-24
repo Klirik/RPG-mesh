@@ -1,11 +1,14 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public abstract class AbstractSpawner : MonoBehaviour
 {
-    public GameObject ObjPrefab;
-    
+    public event Action OnSpawn = delegate { };
+
+    public GameObject ObjPrefab;    
     protected void Spawn()
     {
-        Instantiate(ObjPrefab, transform.position, Quaternion.identity, transform);
+        Instantiate(ObjPrefab, transform.position, Quaternion.identity, null);
+        OnSpawn?.Invoke();
     }
 }

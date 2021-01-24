@@ -29,8 +29,8 @@ public class AttackController<T> : Controller
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
+    protected void OnTriggerExit(Collider other)
+    {        
         DelTarget(other.gameObject);        
     }
 }

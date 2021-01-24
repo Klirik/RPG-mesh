@@ -7,6 +7,7 @@ public class Bullet : AbstractBullet
 {
     public Rigidbody rbBullet = null;
     public float Damage = 10;
+    public int myAttack = 1;
 
     protected override void OnCollisionEnter(Collision collision)
     {
@@ -14,7 +15,7 @@ public class Bullet : AbstractBullet
 
         if (target != null)
         {
-            target.TakeDamage((int)Damage);
+            target.TakeDamage((int)Damage, myAttack);
         }
 
         Destroy(gameObject);

@@ -195,7 +195,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: -5.111725, z: 5.47e-43, w: 8e-44}
+  m_BoundingSphereOverride: {x: 0, y: 2.3688e-41, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -213,6 +213,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &181206568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 181206570}
+  - component: {fileID: 181206569}
+  m_Layer: 0
+  m_Name: '[ConfigManager]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &181206569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181206568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d222e8eda31b65e44a5f34d03f4966c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: af27b81dc7e13294290a023a06cd817f, type: 2}
+  enemy: {fileID: 11400000, guid: 203eaa30f682a584783ee5ea46d6fa7b, type: 2}
+  global: {fileID: 11400000, guid: b05e07fbb14dfbf429dc916c3c6fa749, type: 2}
+--- !u!4 &181206570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181206568}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.784222, y: -13.23851, z: -11.3372345}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &383879027
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,7 +565,7 @@ MonoBehaviour:
     type: 3}
   EnemySpawner: {fileID: 4395601604354371225, guid: 1c58494491f6c0a4288a32e280534b6c,
     type: 3}
-  CountEnemySpawner: 2
-  Width: 10
-  Height: 10
-  RandomFactor: 0.342
+  CountEnemySpawner: 1
+  Width: 50
+  Height: 50
+  RandomFactor: 0.14

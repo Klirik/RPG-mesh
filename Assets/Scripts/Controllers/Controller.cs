@@ -35,7 +35,7 @@ public class Controller : MonoBehaviour
         }
     }
 
-    private void Start()
+    protected void Start()
     {
         Init();
     }
@@ -44,9 +44,12 @@ public class Controller : MonoBehaviour
     {
         enemyDetectedCollider = GetComponent<SphereCollider>();
 
-        enemyDetectedRange = enemyDetectedCollider.radius;
+        if (enemyDetectedCollider)
+        {
+            enemyDetectedRange = enemyDetectedCollider.radius;
+        }
     }
-
+    
     private void Update()
     {
         if (CurTarget)

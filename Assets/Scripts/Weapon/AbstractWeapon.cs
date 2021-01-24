@@ -5,7 +5,6 @@
 public abstract class AbstractWeapon : MonoBehaviour
 {
     protected SphereCollider shotRange;
-    
     public float shotDistance { get; private set; } = 0f;
 
     public Controller attackController = null;
@@ -18,7 +17,10 @@ public abstract class AbstractWeapon : MonoBehaviour
     protected void Awake()
     {
         shotRange = GetComponent<SphereCollider>();
-        shotDistance = shotRange.radius;
+        if (shotRange)
+        {
+            shotDistance = shotRange.radius;
+        }
     }
 
     public abstract void Fire();

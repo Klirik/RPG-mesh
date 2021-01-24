@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+using Random = UnityEngine.Random;
+
 public class SimplerMapGenerator : AbstractMapGenerator
 {
     protected override void CreateMapBoard()
